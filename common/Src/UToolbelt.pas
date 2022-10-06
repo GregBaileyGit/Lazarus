@@ -11,9 +11,6 @@ uses
   UFaceToolbelt;
 
 type
-
-  { TDTTToolbelt }
-
   TDTTToolbelt = class(TInterfacedObject, IFaceToolbelt)
   private
     fTrans        : TSQLTransaction;
@@ -64,14 +61,18 @@ begin
   fMsSQlQuery3    := TSQLQuery.Create(nil);
   fConn.Connected := False;
   try
-    fMsSqlQuery1.Transaction  := fTrans;
-    fMsSqlQuery2.Transaction  := fTrans;
-    fMsSqlQuery3.Transaction  := fTrans;
-
     fConn.DatabaseName        := aDatabaseName;
     fConn.HostName            := aHostName + ':' + aPort.ToString;
     fConn.Transaction         := fTrans;
     fConn.Connected           := True;
+
+    fMsSqlQuery1.Transaction  := fTrans;
+    fMsSqlQuery2.Transaction  := fTrans;
+    fMsSqlQuery3.Transaction  := fTrans;
+
+    fMsSqlQuery1.DataBase     := fConn;
+    fMsSqlQuery2.DataBase     := fConn;
+    fMsSqlQuery3.DataBase     := fConn;
   except
     on e: Exception do
     begin

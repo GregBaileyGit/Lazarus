@@ -1,8 +1,70 @@
-object Form1: TForm1
-  Left = 372
-  Height = 240
-  Top = 31
-  Width = 320
-  Caption = 'Form1'
+object MainFrm: TMainFrm
+  Left = 1404
+  Height = 600
+  Top = 379
+  Width = 800
+  Caption = 'Northwind'
+  ClientHeight = 580
+  ClientWidth = 800
+  Menu = MainMenu1
+  Position = poScreenCenter
   LCLVersion = '2.2.2.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 557
+    Width = 800
+    Panels = <    
+      item
+        Text = 'Connected'
+        Width = 75
+      end    
+      item
+        Style = psOwnerDraw
+        Width = 25
+      end    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object MainMenu1: TMainMenu
+    Left = 38
+    Top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object miExit: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Maintenance'
+      object miCustomers: TMenuItem
+        Caption = 'Customers'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Help'
+      object miAbout: TMenuItem
+        Caption = '&About'
+        ShortCut = 32833
+      end
+    end
+  end
+  object ImageList1: TImageList
+    Left = 120
+    Top = 8
+    Bitmap = {
+      4C7A020000001000000010000000210100000000000078DACD93B10AC2301086
+      7D07D1F770B082A32982D8A2158AE09BB8B4D0497C1407F53932083E8693D84B
+      C0A9F5AA4D5B2529D564F0E05B92FB737F92BB56CB6C0CC7D0B5463CB408A3C8
+      25870E080F7A13E8D4692D9BAD309721A91C0E7D024BA976043EE6246A6D41D2
+      B76151D566BE70FDD6402BB85A246E0BFD8040F485F605BE51E19DB0F3D77AC2
+      4EA59E83585F47F75415D95E451F9BD3EBF9D77D3FDDFFD3ED1F13FDAB981F9E
+      D3687EFE21BCBDD79D1F9C10A1C825877A7B37F077935AFFB3A3BBC25C86A40A
+      60767496F2BA531FF7931AAD20C1DCB7FFCB7CE1FAED33774B374F24675CF19E
+      45FFCC0F6E24AB2542E1232CBD3BE71FF4A7B2BE0355CFAAF8B84B6C4AAFEF5F
+      EFFD74FF4FB77F4CF4AF627E784EA3F9F9251EB4173FC0
+    }
+  end
 end

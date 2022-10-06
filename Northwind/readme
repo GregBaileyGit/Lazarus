@@ -1,0 +1,4 @@
+this project demonstrates how one could seperate code from the form
+there are other methods available; MVVM or MVC for example.
+
+this project uses MS SQL Server and the Northwind database

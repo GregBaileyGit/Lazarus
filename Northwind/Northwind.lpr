@@ -10,16 +10,31 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, UMainFrm
+  Forms, UMainFrm, UMainSrc, UFaceToolbelt, UToolbelt
   { you can add units after this };
 
 {$R *.res}
+
+
+procedure Main;
+var
+  frm : TDTTMainFormCreation;
+begin
+
+  frm := TDTTMainFormCreation.Create(TDTTToolbelt.Create('Northwind'));
+  frm.Free;
+end;
 
 begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Main;
+  {
+  Application.CreateForm(TMainFrm, MainFrm);
   Application.Run;
+  }
+
+
 end.
 
