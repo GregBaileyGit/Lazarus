@@ -26,6 +26,15 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="RunTimeTypeInfoControls"/>
+      </Item>
+      <Item>
+        <PackageName Value="MemDSLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
         <PackageName Value="LCL"/>
       </Item>
     </RequiredPackages>
@@ -51,6 +60,17 @@
       </Unit>
       <Unit>
         <Filename Value="..\common\Src\UToolbelt.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UCustomersFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CustomersFrm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UCustomersSrc.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
     </Units>

@@ -10,7 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, UMainFrm, UMainSrc, UFaceToolbelt, UToolbelt
+  Forms, memdslaz, runtimetypeinfocontrols, UMainFrm, UMainSrc, UFaceToolbelt,
+  UToolbelt, UCustomersFrm, UCustomersSrc
   { you can add units after this };
 
 {$R *.res}

@@ -33,7 +33,8 @@ type
 implementation
 
 uses
-  Dialogs
+  Dialogs,
+  UCustomersSrc
   ;
 
 procedure TDTTMainFormCreation.MenuExit(Sender: TObject);
@@ -47,8 +48,11 @@ begin
 end;
 
 procedure TDTTMainFormCreation.MenuCustomers(Sender: TObject);
+var
+  frm : TDTTCustomersFormCreation;
 begin
-  ShowMessage('customers goes here...');
+  frm := TDTTCustomersFormCreation.Create(self.fToolbelt);
+  frm.Free;
 end;
 
 procedure TDTTMainFormCreation.StatusBar1DrawPanel(StatusBar: TStatusBar;
