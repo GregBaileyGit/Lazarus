@@ -5,13 +5,10 @@ unit UCustomersFrm;
 interface
 
 uses
-  Classes, SysUtils, DB, SQLDB, Forms, Controls, Graphics, Dialogs,
+  Classes, SysUtils, DB, SQLDB, Forms, Controls, Graphics,
   DBGrids, DBCtrls, ExtCtrls, ComCtrls, RTTIGrids;
 
 type
-
-  { TCustomersFrm }
-
   TCustomersFrm = class(TForm)
     DataSource1: TDataSource;
     DBGrid1: TDBGrid;
@@ -31,7 +28,6 @@ implementation
 
 {$R *.lfm}
 
-{ TCustomersFrm }
 
 end.
 
