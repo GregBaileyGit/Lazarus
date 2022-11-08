@@ -6,30 +6,36 @@ interface
 
 uses
   Classes, SysUtils,
-  db, DBGrids
+  db, DBGrids, Grids
   ;
 
 type
-   TDBGridHelper = class helper for TDBGrid
-   public const
-     cMaxColCOunt = 3;
-   private
-     procedure Interbal_MakeNames(Fields: TStrings; out FieldsList, DescFields: String);
-     procedure Internal_SetColumnsIcons(Fields: TStrings; AscIdx, DescIdx: Integer);
-     function Internal_IndexNameExists(IndexDefs: TIndexDefs; IndexName: String): Boolean;
-   public
-     procedure Sort(const FieldName: String; AscIdx: Integer = -1; DescIdx: Integer = -1);
-     procedure ClearSort;
-   end;
+
+  { TDBGridHelper }
+
+  TDBGridHelper = class helper for TDBGrid
+  public const
+    cMaxColCOunt = 3;
+  private
+  protected
+    function Internal_IndexNameExists(IndexDefs: TIndexDefs; IndexName: String): Boolean;
+
+    procedure Internal_MakeNames(Fields: TStrings; out FieldsList, DescFields: String);
+    procedure Internal_SetColumnsIcons(Fields: TStrings; AscIdx, DescIdx: Integer);
+  public
+    procedure SetDefaultRowHeight(const Size : Integer);
+    procedure Sort(const FieldName: String; AscIdx: Integer = -1; DescIdx: Integer = -1);
+  end;
 
 implementation
 
 uses
   BufDataset,
-  Controls
+  Controls,
+  dialogs
   ;
 
-procedure TDBGridHelper.Interbal_MakeNames(Fields: TStrings; out FieldsList, DescFields: String);
+procedure TDBGridHelper.Internal_MakeNames(Fields: TStrings; out FieldsList, DescFields: String);
 var
   FldList: TStringList;
   DscList: TStringList;
@@ -95,13 +101,17 @@ begin
       Exit(True)
   end;
 
-  Result := False
+  Result := False;
 end;
 
-procedure TDBGridHelper.Sort(const FieldName: String; AscIdx: Integer;
-   DescIdx: Integer);
+procedure TDBGridHelper.SetDefaultRowHeight(const Size: Integer);
+begin
+  Self.DefaultRowHeight := Size;
+end;
+
+procedure TDBGridHelper.Sort(const FieldName: String; AscIdx: Integer; DescIdx: Integer);
 var
-  Field: TField;
+ Field: TField;
   DataSet: TBufDataset;
   IndexDefs: TIndexDefs;
   IndexName, Dir, DescFields, FieldsList: String;
@@ -155,7 +165,7 @@ begin
      IndexName := Fields.DelimitedText;
      if not Internal_IndexNameExists(IndexDefs, IndexName) then
      begin
-       Interbal_MakeNames(Fields, FieldsList, DescFields);
+       Internal_MakeNames(Fields, FieldsList, DescFields);
        TBufDataset(DataSet).AddIndex(IndexName, FieldsList, [], DescFields, '');
      end;
 
@@ -164,27 +174,8 @@ begin
    finally
      Fields.Free;
    end;
-end;
 
-procedure TDBGridHelper.ClearSort;
-var
-  DataSet: TBufDataset;
-  Fields: TStringList;
- begin
-   if not Assigned(DataSource.DataSet) or
-      not DataSource.DataSet.Active or
-      not (DataSource.DataSet is TBufDataset) then
-   Exit;
-   DataSet := DataSource.DataSet as TBufDataset;
-
-   DataSet.IndexName := '';
-
-   Fields := TStringList.Create;
-   try
-     Internal_SetColumnsIcons(Fields, -1, -1)
-   finally
-     Fields.Free
-   end
+  self.DataSource.DataSet.First;
 end;
 
 end.

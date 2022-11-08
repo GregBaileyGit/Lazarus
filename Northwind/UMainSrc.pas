@@ -24,6 +24,7 @@ type
     procedure MenuExit(Sender : TObject);
     procedure MenuAbout(Sender : TObject);
     procedure MenuCustomers(Sender : TObject);
+    procedure MenuEmployees(Sender : TObject);
     procedure StatusBar1DrawPanel(StatusBar: TStatusBar; Panel: TStatusPanel; const Rect: TRect);
   public
     constructor Create(aToolbelt : IFaceToolbelt);
@@ -34,7 +35,8 @@ implementation
 
 uses
   Dialogs,
-  UCustomersSrc
+  UCustomersSrc,
+  UEmployeesSrc
   ;
 
 procedure TDTTMainFormCreation.MenuExit(Sender: TObject);
@@ -52,6 +54,14 @@ var
   frm : TDTTCustomersFormCreation;
 begin
   frm := TDTTCustomersFormCreation.Create(self.fToolbelt);
+  frm.Free;
+end;
+
+procedure TDTTMainFormCreation.MenuEmployees(Sender: TObject);
+var
+  frm : TDTTEmployeesFormCreation;
+begin
+  frm := TDTTEmployeesFormCreation.Create(self.fToolbelt);
   frm.Free;
 end;
 
@@ -79,6 +89,7 @@ begin
   self.fForm                            := TMainFrm.Create(nil);
   self.fForm.miExit.OnClick             := @self.MenuExit;
   self.fForm.miCustomers.OnClick        := @self.MenuCustomers;
+  self.fForm.miEmployees.OnClick        := @self.MenuEmployees;
   self.fForm.miAbout.OnClick            := @self.MenuAbout;
   self.fForm.StatusBar1.OnDrawPanel     := @self.StatusBar1DrawPanel;
   self.fForm.StatusBar1.Panels[2].Text  := self.fToolbelt.GetMsSqlConnection.DatabaseName;

@@ -26,6 +26,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="rx_sort_sqldb"/>
+      </Item>
+      <Item>
+        <PackageName Value="rxnew"/>
+      </Item>
+      <Item>
         <PackageName Value="RunTimeTypeInfoControls"/>
       </Item>
       <Item>
@@ -73,6 +79,27 @@
         <Filename Value="UCustomersSrc.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\common\Src\udbgridhelper.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UDBGridHelper"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UEmployeesFrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EmployeesFrm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="UEmployeesSrc.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\bufdataset.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="BufDataset"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -83,7 +110,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common\iFace;..\common\Src"/>
+      <OtherUnitFiles Value="..\common\iFace;..\common\Src;C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

@@ -10,18 +10,17 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, memdslaz, runtimetypeinfocontrols, UMainFrm, UMainSrc, UFaceToolbelt,
-  UToolbelt, UCustomersFrm, UCustomersSrc
+  Forms, rxnew, memdslaz, runtimetypeinfocontrols, UMainFrm, UMainSrc,
+  UFaceToolbelt, UToolbelt, UDBGridHelper, UCustomersFrm, UCustomersSrc,
+  UEmployeesFrm, UEmployeesSrc, BufDataset
   { you can add units after this };
 
 {$R *.res}
-
 
 procedure Main;
 var
   frm : TDTTMainFormCreation;
 begin
-
   frm := TDTTMainFormCreation.Create(TDTTToolbelt.Create('Northwind'));
   frm.Free;
 end;

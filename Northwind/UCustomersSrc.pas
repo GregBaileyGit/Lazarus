@@ -11,9 +11,6 @@ uses
   ;
 
 type
-
-  { TDTTCustomersFormCreation }
-
   TDTTCustomersFormCreation = class
     private
        fForm      : TCustomersFrm;

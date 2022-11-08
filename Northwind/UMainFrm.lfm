@@ -8,7 +8,7 @@ object MainFrm: TMainFrm
   ClientWidth = 800
   Menu = MainMenu1
   Position = poScreenCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
@@ -41,6 +41,9 @@ object MainFrm: TMainFrm
       Caption = 'Maintenance'
       object miCustomers: TMenuItem
         Caption = 'Customers'
+      end
+      object miEmployees: TMenuItem
+        Caption = 'Employees'
       end
     end
     object MenuItem4: TMenuItem
